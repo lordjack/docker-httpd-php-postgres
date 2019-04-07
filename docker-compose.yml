@@ -1,0 +1,17 @@
+version: "3"
+services:
+  postgres:
+    build: postgres
+    container_name: postgres
+    ports:
+    - "5432:5432"
+    volumes:
+    - /data/postgres:/data
+  httpd:
+    build: httpd
+    container_name: httpd
+    ports:
+    - "80:80"
+    volumes:
+    - /data/httpd/:/data/frontend/web/
+    #- /data/httpd/conf:/usr/local/apache2/conf
